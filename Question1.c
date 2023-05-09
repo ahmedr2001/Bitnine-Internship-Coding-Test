@@ -30,118 +30,17 @@ void fib();
 ull fibLargeN(int n);
 
 void calcNodeResult(Node *node);
-
 void calc(Node *node);
-
-Node initNode(int a, int b)
-{
-    Node newNode;
-    newNode.a = a;
-    newNode.b = b;
-    newNode.result = -1;
-    return newNode;
-}
-
-void decideNodeType(Node *node, TypeTag typeTag)
-{
-    switch (typeTag)
-    {
-    case ADD:
-        node->type = (node->a == NULL || node->b == NULL) ? ADD_FIB : ADD;
-        break;
-    case SUB:
-        node->type = (node->a == NULL || node->b == NULL) ? SUB_FIB : SUB;
-        break;
-    case MUL:
-        node->type = (node->a == NULL || node->b == NULL) ? MUL_FIB : MUL;
-        break;
-    case DIV:
-        node->type = (node->a == NULL || node->b == NULL) ? DIV_FIB : DIV;
-        break;    
-    default:
-        break;
-    }    
-}
-
-Node makeNodeAddInt(int a, int b)
-{
-    Node newNode = initNode(a, b);
-    decideNodeType(&newNode, ADD);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeAddNode(Node *ptr_a, Node *ptr_b)
-{
-    int res_a = (ptr_a) ? ptr_a->result : NULL;
-    int res_b = (ptr_b) ? ptr_b->result : NULL;
-    Node newNode = initNode(res_a, res_b);
-    decideNodeType(&newNode, ADD);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeSubInt(int a, int b)
-{
-    Node newNode = initNode(a, b);
-    decideNodeType(&newNode, SUB);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeSubNode(Node *ptr_a, Node *ptr_b)
-{
-    int res_a = (ptr_a) ? ptr_a->result : NULL;
-    int res_b = (ptr_b) ? ptr_b->result : NULL;
-    Node newNode = initNode(res_a, res_b);
-    decideNodeType(&newNode, SUB);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeMulInt(int a, int b)
-{
-    Node newNode = initNode(a, b);
-    decideNodeType(&newNode, MUL);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeMulNode(Node *ptr_a, Node *ptr_b)
-{
-    int res_a = (ptr_a) ? ptr_a->result : NULL;
-    int res_b = (ptr_b) ? ptr_b->result : NULL;
-    Node newNode = initNode(res_a, res_b);
-    decideNodeType(&newNode, MUL);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeDivInt(int a, int b)
-{
-    Node newNode = initNode(a, b);
-    decideNodeType(&newNode, DIV);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
-
-Node makeNodeDivNode(Node *ptr_a, Node *ptr_b)
-{
-    int res_a = (ptr_a) ? ptr_a->result : NULL;
-    int res_b = (ptr_b) ? ptr_b->result : NULL;
-    Node newNode = initNode(res_a, res_b);
-    decideNodeType(&newNode, DIV);
-    calcNodeResult(&newNode);
-
-    return newNode;
-}
+void decideNodeType(Node *node, TypeTag typeTag);
+Node initNode(int a, int b);
+Node makeNodeAddInt(int a, int b);
+Node makeNodeAddNode(Node *ptr_a, Node *ptr_b);
+Node makeNodeSubInt(int a, int b);
+Node makeNodeSubNode(Node *ptr_a, Node *ptr_b);
+Node makeNodeMulInt(int a, int b);
+Node makeNodeMulNode(Node *ptr_a, Node *ptr_b);
+Node makeNodeDivInt(int a, int b);
+Node makeNodeDivNode(Node *ptr_a, Node *ptr_b);
 
 #define makeFuncAdd _add
 #define makeFuncSub _sub
@@ -304,4 +203,114 @@ ull fibLargeN(int n)
     }
 
     return second;
+}
+
+Node initNode(int a, int b)
+{
+    Node newNode;
+    newNode.a = a;
+    newNode.b = b;
+    newNode.result = -1;
+    return newNode;
+}
+
+void decideNodeType(Node *node, TypeTag typeTag)
+{
+    switch (typeTag)
+    {
+    case ADD:
+        node->type = (node->a == NULL || node->b == NULL) ? ADD_FIB : ADD;
+        break;
+    case SUB:
+        node->type = (node->a == NULL || node->b == NULL) ? SUB_FIB : SUB;
+        break;
+    case MUL:
+        node->type = (node->a == NULL || node->b == NULL) ? MUL_FIB : MUL;
+        break;
+    case DIV:
+        node->type = (node->a == NULL || node->b == NULL) ? DIV_FIB : DIV;
+        break;    
+    default:
+        break;
+    }    
+}
+
+Node makeNodeAddInt(int a, int b)
+{
+    Node newNode = initNode(a, b);
+    decideNodeType(&newNode, ADD);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeAddNode(Node *ptr_a, Node *ptr_b)
+{
+    int res_a = (ptr_a) ? ptr_a->result : NULL;
+    int res_b = (ptr_b) ? ptr_b->result : NULL;
+    Node newNode = initNode(res_a, res_b);
+    decideNodeType(&newNode, ADD);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeSubInt(int a, int b)
+{
+    Node newNode = initNode(a, b);
+    decideNodeType(&newNode, SUB);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeSubNode(Node *ptr_a, Node *ptr_b)
+{
+    int res_a = (ptr_a) ? ptr_a->result : NULL;
+    int res_b = (ptr_b) ? ptr_b->result : NULL;
+    Node newNode = initNode(res_a, res_b);
+    decideNodeType(&newNode, SUB);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeMulInt(int a, int b)
+{
+    Node newNode = initNode(a, b);
+    decideNodeType(&newNode, MUL);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeMulNode(Node *ptr_a, Node *ptr_b)
+{
+    int res_a = (ptr_a) ? ptr_a->result : NULL;
+    int res_b = (ptr_b) ? ptr_b->result : NULL;
+    Node newNode = initNode(res_a, res_b);
+    decideNodeType(&newNode, MUL);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeDivInt(int a, int b)
+{
+    Node newNode = initNode(a, b);
+    decideNodeType(&newNode, DIV);
+    calcNodeResult(&newNode);
+
+    return newNode;
+}
+
+Node makeNodeDivNode(Node *ptr_a, Node *ptr_b)
+{
+    int res_a = (ptr_a) ? ptr_a->result : NULL;
+    int res_b = (ptr_b) ? ptr_b->result : NULL;
+    Node newNode = initNode(res_a, res_b);
+    decideNodeType(&newNode, DIV);
+    calcNodeResult(&newNode);
+
+    return newNode;
 }

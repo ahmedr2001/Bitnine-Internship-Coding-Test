@@ -1,6 +1,21 @@
 #include <stdio.h>
 typedef unsigned long long ull;
 
+ull brute_force_F(int n);
+ull iterative_F(int n);
+ull Padovan_sequence(int n);
+ull using_Padovan_F(int n);
+
+int main()
+{
+    for(int index = 0; index < 20; index++) {
+        printf("Brute Force: %llu\n", brute_force_F(index));
+        printf("Iterative: %llu\n", iterative_F(index));
+        printf("Using Padovan Sequence: %llu\n", using_Padovan_F(index));
+        puts("");
+    }
+}
+
 ull brute_force_F(int n)
 {
     if (n == 0 || n == 1 || n == 2) {
@@ -48,14 +63,4 @@ ull using_Padovan_F(int n)
     ull result = 2 * first + second;
 
     return result;
-}
-
-int main()
-{
-    for(int index = 0; index < 20; index++) {
-        printf("Brute Force: %llu\n", brute_force_F(index));
-        printf("Iterative: %llu\n", iterative_F(index));
-        printf("Using Padovan Sequence: %llu\n", using_Padovan_F(index));
-        puts("");
-    }
 }
