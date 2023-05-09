@@ -1,9 +1,20 @@
 #include <stdio.h>
 typedef unsigned long long ull;
 
+/** Advantages: Straightforward
+ * Disadvantages: High Time Complexity
+*/
 ull brute_force_F(int n);
+/** Advantages: Reduced Time Complexity
+ *  Disadvantages: No saving of previously calculated values
+*/
 ull iterative_F(int n);
+
 ull Padovan_sequence(int n);
+/** Advantages: Do not Need to Handle 0, 1 and 2 base cases
+ *  Disadvantages: Repeated Calculation of Padovan Sequence Values
+ *      Complexity O(2N) instead of O(N)
+*/
 ull using_Padovan_F(int n);
 
 int main()
